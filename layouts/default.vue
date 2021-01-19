@@ -1,7 +1,5 @@
 <template>
   <v-app>
-    <Navbar v-if="!['detail-detail'].includes($route.name)" />
-
     <nuxt />
   </v-app>
 </template>

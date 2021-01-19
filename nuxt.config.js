@@ -18,8 +18,11 @@ export default {
   env: {
     NUXT_ENV_COOL_WORD: "a default value that can be overridden",
     SOME_OTHER_VALUE: "can't be overridden - missing NUXT_ENV_ prefix",
-    CONDITIONAL: process.env.CONDITIONAL || "some default value" ,//if can't use NUXT_ENV_
+    CONDITIONAL: process.env.CONDITIONAL || "some default value", //if can't use NUXT_ENV_
     SECRET: process.env.API_SECRET // Ensure variable reaches the client
+  },
+  privateRuntimeConfig: {
+    baseURL: process.env.API_SECRET
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -34,11 +37,12 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
-    "@nuxtjs/vuetify"
+    "@nuxtjs/vuetify",
+    "@nuxtjs/dotenv"
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxtjs/axios", '@nuxtjs/dotenv',],
+  modules: ["@nuxtjs/axios", "@nuxtjs/dotenv"],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
