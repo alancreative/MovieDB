@@ -38,7 +38,8 @@
         <v-tab class="capitalize">Tv Show</v-tab>
       </v-tabs>
     </v-container>
-    <v-container  class="mt-0 pa-0" style="margin-top: 20px;">
+    <v-spacer></v-spacer>
+    <v-container class="mt-0 pa-0" style="margin-top: 20px;">
       <v-col cols="12" style="overflow-y: auto; white-space: nowrap;">
         <div v-if="loading" align="center">
           <v-skeleton-loader
@@ -51,13 +52,10 @@
             style="margin: 20px; display: inline-table; border-radius: 25px;"
           />
         </div>
-        <div v-else  class="mt-0 pa-0">
+        <div v-else class="mt-0 pa-0">
           <v-sheet class="mx-auto">
             <v-slide-group center-active>
-              <v-slide-item
-                v-for="movie in movies"
-                :key="movie.id"
-              >
+              <v-slide-item v-for="movie in movies" :key="movie.id">
                 <div>
                   <v-card
                     draggable
@@ -66,6 +64,7 @@
                     height="auto"
                     color="transparent"
                     :to="`/detail/${movie.id}`"
+                    elevation="20"
                   >
                     <v-img
                       lazy-src="https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2020%2F03%2Fwonder-woman-1984-new-poster-release-gal-gadot-tw.jpg?w=960&cbr=1&q=90&fit=max"
@@ -121,8 +120,8 @@ export default {
     this.refresh();
   },
   methods: {
-    getImage (path) {
-      return api.getImage(path)
+    getImage(path) {
+      return api.getImage(path);
     },
     reset() {
       this.url = process.env.API_URL + "/movie/now_playing";

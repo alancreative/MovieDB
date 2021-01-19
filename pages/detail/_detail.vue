@@ -101,27 +101,27 @@
               Cast & Crew
             </h3>
           </div>
-          <div style="margin: 10px; white-space: nowrap; overflow-y: auto;">
-            <div
-              v-for="(crew, index) in credit.crew"
-              :key="index"
-              align="center"
-              style="display: inline-block;"
-            >
-              <v-img
-                width="80"
-                height="80"
-                :src="getImage(crew.profile_path)"
-                style="border-radius: 50%; border: 1px solid lightgray;"
-              />
-              <div>
-                {{ crew.name }}
-              </div>
-              <div style="color: gray;">
-                {{ crew.department }}
-              </div>
-            </div>
-          </div>
+          <v-sheet class="mx-auto">
+            <v-slide-group center-active>
+              <v-slide-item v-for="(crew, index) in credit.crew" :key="index">
+                <div  class=" ma-2">
+                  <v-img
+                    lazy-src="https://avatars1.githubusercontent.com/u/23070604?s=460&u=1f597c974abe716c565402aa3ae8419f1a9995ed&v=4"
+                    width="80"
+                    height="80"
+                    :src="getImage(crew.profile_path)"
+                    style="border-radius: 50%; border: 1px solid lightgray;"
+                  />
+                  <div>
+                    {{ crew.name }}
+                  </div>
+                  <div style="color: gray;">
+                    {{ crew.department }}
+                  </div>
+                </div>
+              </v-slide-item>
+            </v-slide-group>
+          </v-sheet>
         </div>
       </div>
     </div>
